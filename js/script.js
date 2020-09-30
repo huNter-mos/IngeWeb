@@ -6,27 +6,11 @@ Object.size = function(obj) {
     return size;
 }
 
-    function toTable(obj) {
-        var refTable = document.getElementById("myTab");
-        var nouvelleLigne = refTable.insertRow(0);
-    
-        var nom = nouvelleLigne.insertCell(0);
-        nouveauTexte = document.createTextNode(obj.name)
-        nom.appendChild(nouveauTexte);
-    
-        var tribu = nouvelleLigne.insertCell(1);
-        if(obj.tribe != null){
-            nouveauTexte = document.createTextNode(obj.tribe)
-            tribu.appendChild(nouveauTexte);
-        }
-
-        var boutton = nouvelleLigne.insertCell(2);
+    function toTopic(topic,comment) {
+        var topics = document.getElementById("Topics");
         nouveauTexte = document.createElement("span");
-        nouveauTexte.innerHTML= '<button id=' + obj.id +' onclick="onclickinfo(' + obj.id +')"> Plus d\'info </button>';
-        boutton.appendChild(nouveauTexte);
-
-
-
+        nouveauTexte.innerHTML+='<div> date :' + topic.date +' <br> titre : '+topic.titre+' <br> contenu : '+comment[1]+' </div>';
+        topics.appendChild(nouveauTexte);
     }
 
 function onclickinfo(id) {
