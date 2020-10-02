@@ -9,7 +9,7 @@
 $apis = [
     "topics" => "apis/topics.php",
     "topic/(\d+)" => "apis/topic.php",
-    "comments" => "apis/comments.php",
+    "comments/(\d+)" => "apis/comment.php",
     "user/(\d+)" => "apis/user.php"
 ];
 
