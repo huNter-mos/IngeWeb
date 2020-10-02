@@ -1,19 +1,20 @@
 <?php
 function create(){
-        $sql = file_get_contents("script.sql");
+        $sql = file_get_contents("../sql/table.sql");
+        $sql1 = file_get_contents("../sql/data.sql");
         try {
             $dbh = connect();
             $dbh->exec($sql);
+            $dbh->exec($sql1);
         } catch (PDOException $e) {
             echo $e->getCode() . ' ' . $e->getMessage();
         }
     }
 
     function connect(){
-        $dbh = new PDO('sqlite:database.sqlite');
+        $dbh = new PDO('sqlite:triplea.sqlite');
         return $dbh;
     }
-
 
     function getFromTable($req){
         $dbh = connect();
@@ -31,21 +32,15 @@ function create(){
         }
     }
 
-    function getCharactersBase(){
-        $data = getFromTable("SELECT id,name FROM characters");
+    function getAllTopics(){
+        $data = getFromTable("SELECT * FROM topic");
         return $data;
     }   
 
-    function getCharactersOrdered($order){
-        $data = getFromTable("SELECT name, tribe FROM characters ORDER BY $order");
+    function getTopicById($id){
+        $data = getFromTable("SELECT * FROM topic WHERE id=$id");
         return $data;
-    }
-
-    function getCharacterById($id){
-        $data = getFromTable("SELECT * FROM characters WHERE id=$id");
-        return $data;
-    }
-
+    }  
 
     function updateClass($name, $class){
         $dbh = connect();

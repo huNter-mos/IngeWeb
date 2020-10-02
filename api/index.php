@@ -6,12 +6,12 @@
 
 // Ici la liste de vos APIs et de leurs scripts associés
 $apis = [
-    "useless" => "apis/useless-list.php",
-    "useless/(\d+)" => "apis/useless-instance.php",
-    "characters" => "apis/characters.php",
-    "character/(\d+)" => "apis/character.php"
-
+    "topics" => "apis/topics.php",
+    "topic/(\d+)" => "apis/topic.php",
+    "comments" => "apis/comments.php",
+    "user/(\d+)" => "apis/user.php"
 ];
+
 
 
 
