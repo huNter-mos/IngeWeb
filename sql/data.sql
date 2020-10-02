@@ -1,4 +1,4 @@
-INSERT INTO .`user` (nickname,nom,prenom,email,password,date_inscription) 
+INSERT INTO `user` (nickname,nom,prenom,email,password,date_inscription) 
 values ("admin","admin","admin","admin@mail.com", "password",'2020-12-06');
 
 INSERT INTO `user` (nickname,nom,prenom,email,password,date_inscription) 
