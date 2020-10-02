@@ -9,6 +9,20 @@ class Topic{
     private $user;
 
     /**
+     * Topic constructor
+     */ 
+    function __construct($id,$titre,$message,$date_creation,$categorie,$user)
+    {
+        $this->id = $id;
+        $this->titre = $titre;
+        $this->message = $message;
+        $this->date_creation = $date_creation;
+        $this->categorie = $categorie;
+        $this->user = $user;
+
+    }
+
+    /**
      * Get the value of titre
      */ 
     public function getTitre()

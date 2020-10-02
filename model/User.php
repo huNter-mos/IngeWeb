@@ -10,6 +10,21 @@ class User{
     private $date_inscription;
 
     /**
+     * User constructor
+     */ 
+    function __construct($id,$nickname,$nom,$prenom,$email,$password, $date_inscription)
+    {
+        $this->id = $id;
+        $this->nickname = $nickname;
+        $this->nom = $nom;
+        $this->prenom = $prenom;
+        $this->email = $email;
+        $this->password = $password;
+        $this->date_inscription = $date_inscription;
+
+    }
+
+    /**
      * Get the value of date_inscription
      */ 
     public function getDate_inscription()
