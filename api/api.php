@@ -42,18 +42,4 @@ function create(){
         return $data;
     }  
 
-    function updateClass($name, $class){
-        $dbh = connect();
-        $sql = "UPDATE characters SET class = '$class' WHERE name = '$name'";
-        $dbh->beginTransaction();
-        try {
-            $sth = $dbh->prepare($sql);
-            $sth->execute();
-            $data = $sth->fetchAll();
-            $dbh->commit();
-        } catch(PDOException $e) {
-            echo $e->getCode() . ' ' . $e->getMessage();
-            $dbh->rollback();
-        }
-    }
 ?>
