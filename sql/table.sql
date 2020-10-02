@@ -1,9 +1,9 @@
-DROP TABLE IF EXISTS `triplea`.`post`;
-DROP TABLE IF EXISTS `triplea`.`topic`;
-DROP TABLE IF EXISTS `triplea`.`categorie`;
-DROP TABLE IF EXISTS `triplea`.`user`;
+DROP TABLE IF EXISTS `post`;
+DROP TABLE IF EXISTS `topic`;
+DROP TABLE IF EXISTS `categorie`;
+DROP TABLE IF EXISTS `user`;
 
-CREATE TABLE `triplea`.`user` (
+CREATE TABLE `user` (
   `id` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `nickname` varchar(255) NOT NULL,
   `nom` varchar(255) NOT NULL,
@@ -14,11 +14,11 @@ CREATE TABLE `triplea`.`user` (
   `avatar_url` varchar(255) DEFAULT NULL
 );
 
-CREATE TABLE `triplea`.`categorie` 
+CREATE TABLE `categorie` 
 ( `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT, 
 `titre` VARCHAR(255) NOT NULL);
 
-CREATE TABLE `triplea`.`topic` 
+CREATE TABLE `topic` 
 ( `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL , 
 `titre` VARCHAR(255) NOT NULL ,
 `message` VARCHAR(1020) NOT NULL ,
@@ -29,7 +29,7 @@ FOREIGN KEY (fk_categorie) REFERENCES categorie (id) ON DELETE CASCADE,
 FOREIGN KEY (fk_user) REFERENCES user (id) ON DELETE CASCADE
  );
 
-CREATE TABLE `triplea`.`post` 
+CREATE TABLE `post` 
 ( `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL , 
 `message` VARCHAR(1020) NOT NULL , 
 `date_creation` DATE NOT NULL,

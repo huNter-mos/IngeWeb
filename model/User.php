@@ -7,6 +7,11 @@ class User{
     private $email;
     private $password;
     private $date_inscription;
+
+
+
+
+    
 }
 
 ?>
