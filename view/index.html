@@ -7,18 +7,10 @@
     <script src="../js/script.js"></script>
     <link rel="stylesheet" href="../css/style.css">
 
-    <title>Forum TripleA</title>
+    <title>Forum Triple A</title>
   </head>
 
   <body>
-    <script type="text/javascript">
-        function onClick() {
-          console.log("test");
-          getTopics();
-          getTopicById(1);
-          getCommentbyTopic(1);
-        }
-    </script>
       <ul class="nav">
         <li><a class="active" href="index.html">Home</a></li>
         <li><a href="#forum">Forum</a></li>
@@ -27,7 +19,10 @@
         <li class="profil"><a href="profil.html">Profil</a></li>
       </ul>
 
-      <h1 onclick="onClick()">Bienvenue sur la page du forum</h1>
+      <h1 id="test">Bienvenue sur la page du forum</h1>
+      <div class="topics" id="topics">
+
+      </div>
 
   </body>
 </html>

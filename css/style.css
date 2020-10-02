@@ -84,3 +84,15 @@ input[type=submit]:hover {
     color: #4CAF50;
     border: 1px solid #4CAF50;
 }
+
+/*Home page with forums*/
+
+.forums{
+  display: flex;
+  flex-direction: row;
+}
+
+.forum{
+  width: 150px;
+  height: 150px;
+}
