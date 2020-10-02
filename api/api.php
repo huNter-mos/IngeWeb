@@ -42,4 +42,14 @@ function create(){
         return $data;
     }  
 
+    function getUserById($nickname){
+        $data = getFromTable("SELECT id , nickname , nom , prenom , email , date_inscription , avatar_url FROM user WHERE nickname=$nickname");
+        return $data;
+    }  
+
+    function getCommentByTopic($topic){
+        $data = getFromTable("SELECT id , nickname , nom , prenom , email , date_inscription , avatar_url FROM user WHERE fk_topic=$topic");
+        return $data;
+    }  
+
 ?>
