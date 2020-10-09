@@ -1,5 +1,10 @@
 <?php
+   include "../api/api.php";
+
    $msg = 'pas de resultat';
+   
+   //TODO connexion bdd en PDO et vérification des données du post
+   //TODO session etc
    if (isset($_POST['login']) && !empty($_POST['username'])
       && !empty($_POST['password'])) {
    
@@ -16,6 +21,5 @@
    
    }
 echo($msg);
-
 
 ?>
