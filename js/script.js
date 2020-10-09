@@ -26,7 +26,7 @@ function topics(topic){
 
 
     topicDiv = document.createElement("span");
-    topicDiv.innerHTML+='<div  id="topic" class="topic"> titre : '+topic.titre+'</div>';
+    topicDiv.innerHTML+='<div  id="topic" class="topic"> '+topic.titre+'</div>';
     topicDiv.style.margin = "1em";
     topicDiv.style.padding = "1em";
     topicDiv.style.overflow = "hidden";
@@ -35,15 +35,19 @@ function topics(topic){
     topicDiv.style.maxWidth = "15vw";
     topicDiv.style.maxHeight = "20vh";
     topicDiv.style.fontWeight = "bold";
+    topicDiv.style.fontSize="large";
+    topicDiv.style.textAlign="center"
     topicDiv.addEventListener('click',function () {
-        window.location.assign('topic.html?id='+topic.id);
+        window.location.assign('topic.html?topic='+topic.id);
     })
 
 
     content = document.createElement("span");
-    content.innerHTML+='<div  id="content" class="content"> contenu : '+topic.message+'</div>';
+    content.innerHTML+='<div  id="content" class="content">'+topic.message+'</div>';
     content.style.textOverflow ="ellipsis";
     content.style.fontWeight = "normal";
+    content.style.fontSize="medium";
+
 
     topicDiv.appendChild(content)
     topics.appendChild(topicDiv);
