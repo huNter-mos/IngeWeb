@@ -19,26 +19,36 @@ function getTopicById(id){
     });
 }
 
-function getCommentbyTopic(id){
-    const f = fetch('http://bean.example.com/IngeWeb/api/index.php?url=comments/'+id);
-    f.then(response => response.json()).then(data => 
-        {
-        });
-
-    f.catch(function(data) { 
-    });
-}
 
 function topics(topic){
-    console.log(topic);
     var topics = document.getElementById("topics");
-    nouveauTexte = document.createElement("span");
-    nouveauTexte.innerHTML+='<div class="topic"> date :' + topic.date_creation +' <br> titre : '+topic.titre+' <br> contenu : '+topic.message+' </div>';
-    topics.appendChild(nouveauTexte);
+    topics.style.display = "flex"
+
+
+    topicDiv = document.createElement("span");
+    topicDiv.innerHTML+='<div  id="topic" class="topic"> titre : '+topic.titre+'</div>';
+    topicDiv.style.margin = "1em";
+    topicDiv.style.padding = "1em";
+    topicDiv.style.overflow = "hidden";
+    topicDiv.style.backgroundColor = "#a9cad6";
+    topicDiv.style.boxShadow ="1px 1px 12px #555";
+    topicDiv.style.maxWidth = "15vw";
+    topicDiv.style.maxHeight = "20vh";
+    topicDiv.style.fontWeight = "bold";
+    topicDiv.addEventListener('click',function () {
+        window.location.assign('topic.html?id='+topic.id);
+    })
+
+
+    content = document.createElement("span");
+    content.innerHTML+='<div  id="content" class="content"> contenu : '+topic.message+'</div>';
+    content.style.textOverflow ="ellipsis";
+    content.style.fontWeight = "normal";
+
+    topicDiv.appendChild(content)
+    topics.appendChild(topicDiv);
 }
 
 window.onload=function(){
         getTopics();
-        getTopicById(1);
-        getCommentbyTopic(1);
   };

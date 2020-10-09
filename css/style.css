@@ -87,12 +87,16 @@ input[type=submit]:hover {
 
 /*Home page with forums*/
 
-.forums{
+div .forums{
   display: flex;
   flex-direction: row;
 }
 
-.forum{
-  width: 150px;
-  height: 150px;
+#forum{
+  margin: 1em;
+  padding: 0.5em;
+  width: 110px;
+  min-width: 0;
+  background-color: #1B5385;
+  color: white;
 }
