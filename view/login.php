@@ -42,9 +42,9 @@
         <form action="../controller/verification.php" method="POST">
             <h1>Connexion</h1>
             <?php
-              if($_SESSION['error']){
+              if(isset($_SESSION['error'])){
                 print('<div class="error"> Erreur de connexion</div>');
-                $_SESSION['error'] = false;
+                unset($_SESSION['error']);
               }
             ?>
             

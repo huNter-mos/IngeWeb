@@ -13,8 +13,10 @@
   <body>
     <?php
         session_start();
-        if(!isset($_SESSION['nickname'])){
-          header('Location: ../view/login.php');
+        if(isset($_SESSION['nickname'])){
+        }
+        else{
+            header('Location: ../view/login.php');
         }
     ?>
 
@@ -36,9 +38,16 @@
         </li>
     </ul>
 
-
+    <?php
+        print("Pseudonyme : " . $_SESSION['nickname'] . "<br>");
+        print("Nom : " .$_SESSION['nom'] . "<br>");
+        print("Prénom : " .$_SESSION['prenom'] . "<br>");
+        print("Mail : " .$_SESSION['email'] . "<br>");
+        print("Date d'inscription : " .$_SESSION['date_inscription'] . "<br>");
+        print("Avatar : " .$_SESSION['avatar_url'] . "<br>");
+        print('<a class="deconnexion" href="logout.php">Déconnexion</a>');
+    ?>
     
-
     <script>
     </script>
   </body>
