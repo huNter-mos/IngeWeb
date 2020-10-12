@@ -4,21 +4,25 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="../js/script.js"></script>
+    <script src="js/script.js"></script>
     <link rel="stylesheet" href="../css/style.css">
 
-    <title>Forum Triple A</title>
+    <title>Login TripleA</title>
   </head>
 
   <body>
     <?php
         session_start();
+        if(!isset($_SESSION['nickname'])){
+          header('Location: ../view/login.php');
+        }
     ?>
-      <ul class="nav">
-        <li><a class="" href="index.php">Home</a></li>
-        <li><a class="active" href="forum.php">Forum</a></li>
+
+    <ul class="nav">
+        <li><a href="index.php">Home</a></li>
+        <li><a href="forum.php">Forum</a></li>
         <li><a href="about.php">About</a></li>
-        <li class="profil">
+        <li class="profil active">
           <a href="login.php">
             <?php
               if(isset($_SESSION['nickname'])){
@@ -30,11 +34,12 @@
             ?>
           </a>
         </li>
-      </ul>
+    </ul>
 
-      <div class="topics" id="topics">
 
-      </div>
+    
 
+    <script>
+    </script>
   </body>
 </html>
