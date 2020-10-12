@@ -1,25 +1,21 @@
 <?php
-   include "../api/api.php";
+   session_start();
+   require_once "../api/api.php";
 
-   $msg = 'pas de resultat';
-   
-   //TODO connexion bdd en PDO et vérification des données du post
-   //TODO session etc
    if (isset($_POST['login']) && !empty($_POST['username'])
       && !empty($_POST['password'])) {
-   
-      if ($_POST['username'] == 'tutorialspoint' && 
-         $_POST['password'] == '1234') {
+         $db = new PDO("sqlite:".__DIR__."/database.sql");
+         connectForum($_POST['username'], $_POST['password']);
+      if ($response) {
          $_SESSION['valid'] = true;
          $_SESSION['timeout'] = time();
-         $_SESSION['username'] = 'tutorialspoint';
-         
+         $_SESSION['username'] = getUserByEmail();
          $msg =  'You have entered valid use name and password';
       }else {
-         $msg = 'Wrong username or password';
+         //connexion impossible
+         header( 'Location: ../view/login.html' );
       }
    
    }
-echo($msg);
 
 ?>

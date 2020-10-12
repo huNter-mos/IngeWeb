@@ -11,6 +11,10 @@
   </head>
 
   <body>
+    <?php
+      session_start();
+    ?>
+    
     <ul class="nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="#forum">Forum</a></li>
@@ -18,9 +22,9 @@
         <li><a href="#about">About</a></li>
         <li class="profil active"><a href="login.html">Profil</a></li>
     </ul>
+    
     <div id="container">
         <!-- zone de connexion -->
-        
         <form action="../controller/verification.php" method="POST">
             <h1>Connexion</h1>
             

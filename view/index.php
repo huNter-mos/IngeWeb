@@ -4,25 +4,25 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="../js/scriptTopic.js"></script>
+    <script src="../js/script.js"></script>
     <link rel="stylesheet" href="../css/style.css">
 
     <title>Forum Triple A</title>
   </head>
 
   <body>
+    <?php
+        session_start();
+    ?>
       <ul class="nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#forum">Forum</a></li>
-        <li><a class="active" href="#topic">Topic</a></li>
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="index.html">Forum</a></li>
+        <li><a href="topic.html">Topic</a></li>
         <li><a href="#about">About</a></li>
         <li class="profil"><a href="login.html">Profil</a></li>
       </ul>
 
-      <div class="topicView" id="topicView">
-
-      </div>
-      <div class="commentView" id="commentView">
+      <div class="topics" id="topics">
 
       </div>
 
