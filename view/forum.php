@@ -18,7 +18,18 @@
         <li><a class="" href="index.php">Home</a></li>
         <li><a class="active" href="forum.php">Forum</a></li>
         <li><a href="about.php">About</a></li>
-        <li class="profil"><a href="login.php">Profil</a></li>
+        <li class="profil">
+          <a href="login.php">
+            <?php
+              if(isset($_SESSION['nickname'])){
+                print($_SESSION['nickname']);
+              }
+              else{
+                print("Profil");
+              }
+            ?>
+          </a>
+        </li>
       </ul>
 
       <div class="topics" id="topics">

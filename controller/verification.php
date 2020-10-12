@@ -12,12 +12,13 @@
          $_SESSION['timeout'] = time();
          $mail = file_get_contents("http://bean.example.com/api/index.php?url=mail&email=%22" . $_POST['username'] . "%22");
          $mail = json_decode($mail,true);
-         $_SESSION['username'] = $mail["nickname"];
+         $_SESSION['nickname'] = $mail["nickname"];
          $msg =  'You have entered valid use name and password';
          //redirection
          header('Location: ../view/index.php');
       }else {
          //connexion impossible
+         $_SESSION['error'] = true;
          header('Location: ../view/login.php');
       }
    

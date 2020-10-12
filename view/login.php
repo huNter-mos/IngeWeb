@@ -12,20 +12,38 @@
 
   <body>
     <?php
-      session_start();
+        session_start();
     ?>
 
     <ul class="nav">
         <li><a href="index.php">Home</a></li>
         <li><a href="forum.php">Forum</a></li>
-        <li><a href="#about">About</a></li>
-        <li class="active"><a href="login.php">Profil</a></li>
+        <li><a href="about.php">About</a></li>
+        <li class="profil active">
+          <a href="login.php">
+            <?php
+              if(isset($_SESSION['nickname'])){
+                print($_SESSION['nickname']);
+              }
+              else{
+                print("Profil");
+              }
+            ?>
+          </a>
+        </li>
     </ul>
+    
     
     <div id="container">
         <!-- zone de connexion -->
         <form action="../controller/verification.php" method="POST">
             <h1>Connexion</h1>
+            <?php
+              if($_SESSION['error']){
+                print('<div class="error"> Erreur de connexion</div>');
+                $_SESSION['error'] = false;
+              }
+            ?>
             
             <label><b>Nom d'utilisateur</b></label>
             <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
