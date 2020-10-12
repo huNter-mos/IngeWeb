@@ -16,8 +16,9 @@ function create(){
         return $dbh;
     }
 
-    function getFromTable($req){
+    function sqlDbRequest($req){
         $dbh = connect();
+        $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
         $sql = $req;
         $dbh->beginTransaction();
         try {
@@ -33,34 +34,42 @@ function create(){
     }
 
     function getAllTopics(){
-        $data = getFromTable("SELECT * FROM topic");
+        $data = sqlDbRequest("SELECT * FROM topic");
         return $data;
     }   
 
     function getTopicById($id){
-        $data = getFromTable("SELECT * FROM topic WHERE id=$id");
+        $data = sqlDbRequest("SELECT * FROM topic WHERE id=$id");
         return $data;
     }  
 
     function getUserById($id){
-        $data = getFromTable("SELECT id , nickname , nom , prenom , email , date_inscription , avatar_url FROM user WHERE id=$id");
+        $data = sqlDbRequest("SELECT id , nickname , nom , prenom , email , date_inscription , avatar_url FROM user WHERE id=$id");
         return $data;
     }
     function getUserByMail($mail){
-        $data = getFromTable("SELECT id , nickname , nom , prenom , email , date_inscription , avatar_url FROM user WHERE email=$mail");
+        $data = sqlDbRequest("SELECT id , nickname , nom , prenom , email , date_inscription , avatar_url FROM user WHERE email=$mail");
         return $data;
     }  
 
     function getCommentByTopic($topicId){
-        $data = getFromTable("SELECT * FROM post WHERE fk_topic=$topicId");
+        $data = sqlDbRequest("SELECT * FROM post WHERE fk_topic=$topicId");
         return $data;
     }
     function connectForum($email,$password){
-        $data = getFromTable("SELECT COUNT(*) FROM user WHERE email=$email AND password=$password");
+        $data = sqlDbRequest("SELECT COUNT(*) FROM user WHERE email=$email AND password=$password");
         return $data;
     }
-    function newTopic($titre,$content,$date,$user){
-        $data = getFromTable("INSERT INTO post (titre, message, date_creation, fk_categorie, fk_user) VALUES ($titre,$content ,$date, 1, $user)");
+    function newTopic($titre,$content,$date,$categorie,$user){
+        $data = sqlDbRequest("INSERT INTO `topic` (titre, message, date_creation, fk_categorie, fk_user) VALUES('".$titre."','".$content."' ,'".$date."', $categorie, $user)");
+        return $data;
+    }
+    function newComment($message,$date,$topicId,$userID){
+        $data = sqlDbRequest("INSERT INTO `post` (message, date_creation, fk_topic, fk_user) values ('".$message."','".$date."' , $topicId, $userID)");
+        return $data;
+    }
+    function newUser($nickname,$nom,$prenom,$email,$password,$date_inscription){
+        $data = sqlDbRequest("INSERT INTO `user` (nickname,nom,prenom,email,password,date_inscription) values ('".$nickname."','".$nom."','".$prenom."','".$email."','".$password."','".$date_inscription."')");
         return $data;
     }
 

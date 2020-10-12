@@ -13,7 +13,9 @@ $apis = [
     "user/(\d+)" => "apis/user.php",
     "connect" => "apis/connect.php",
     "mail" => "apis/mail.php",
-    "newTopic" => "apis/newTopic.php",   
+    "newTopic" => "apis/newTopic.php",
+    "newComment" => "apis/newComment.php",
+    "newUser" => "apis/newUser.php"
 ];
 
 
