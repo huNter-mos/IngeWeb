@@ -1,7 +1,6 @@
 function getTopicById(id){
     const f = fetch('http://bean.example.com/IngeWeb/api/index.php?url=topic/'+id);
     f.then(response => response.json()).then(data => {
-        console.log(data[0]);
         topicView(data[0]);
         });
 
@@ -12,10 +11,22 @@ function getCommentbyTopic(id){
     const f = fetch('http://bean.example.com/IngeWeb/api/index.php?url=comments/'+id);
     f.then(response => response.json()).then(data => 
         {
-            console.log(data);
-            //affichage commentView();
+            data.forEach(element => {
+                console.log("test",element);
+                getUserById(element.fk_user);
+                comment(element,2);
+            });
         });
 
+    f.catch(function(data) { 
+    });
+}
+function getUserById(id){
+    const f = fetch('http://bean.example.com/IngeWeb/api/index.php?url=user/'+id);
+    f.then(response => response.json()).then(data => {
+        console.log(data);
+        comment(data[0],1);
+        });
     f.catch(function(data) { 
     });
 }
@@ -45,9 +56,42 @@ function topicView(topic) {
     topicDiv.appendChild(content)
     topicView.appendChild(topicDiv);
 }
-function commentVIew(data) {
-    
+function comment(comment,part){
+    var commentView = document.getElementById("commentView");
+    commentView.style.display = "flex";
+    commentView.style.flexDirection = "colum";
+    commentView.style.flexDirection = "colum";
+    commentView.style.backgroundColor = "#f1faee";
+
+
+    if(part===1){
+
+        commentProfileHead = document.createElement("span");
+        commentProfileHead.innerHTML += '<div class="comment"> par '+comment.nickname+'</div>';
+        
+        commentView.appendChild(commentProfileHead);
+
+    }
+    if(part===2){
+
+
+
+        commentHead = document.createElement("span");
+        commentHead.innerHTML+='<div class="comment"> Fait le : '+comment.date_creation+' </div>';
+        commentHead.style.backgroundColor = "#f1faee";
+
+
+        commentContent = document.createElement("span");
+        commentContent.innerHTML+='<div  id="content" class="content">'+comment.message+'</div>';
+        commentContent.style.backgroundColor = "#f1faee";
+
+
+
+        commentHead.appendChild(commentContent)
+        commentView.appendChild(commentHead);
+    }
 }
+
 
 window.onload=function(){
     const urlParams = new URLSearchParams(window.location.search);
