@@ -12,7 +12,8 @@ $apis = [
     "comments/(\d+)" => "apis/comment.php",
     "user/(\d+)" => "apis/user.php",
     "connect" => "apis/connect.php",
-    "mail" => "apis/mail.php"
+    "mail" => "apis/mail.php",
+    "newTopic" => "apis/newTopic.php",   
 ];
 
 
