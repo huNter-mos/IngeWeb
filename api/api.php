@@ -50,6 +50,10 @@ function create(){
     function getCommentByTopic($topicId){
         $data = getFromTable("SELECT * FROM post WHERE fk_topic=$topicId");
         return $data;
-    }  
+    }
+    function connectForum($email,$password){
+        $data = getFromTable("SELECT COUNT(*) FROM user WHERE email=$email AND password=$password");
+        return $data;
+    }
 
 ?>
