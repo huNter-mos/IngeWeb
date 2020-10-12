@@ -38,7 +38,7 @@ function topics(topic){
     topicDiv.style.fontSize="large";
     topicDiv.style.textAlign="center"
     topicDiv.addEventListener('click',function () {
-        window.location.assign('topic.html?topic='+topic.id);
+        window.location.assign('topic.php?topic='+topic.id);
     })
 
 

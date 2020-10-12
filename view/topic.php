@@ -11,15 +11,14 @@
   </head>
 
   <body>
-  <?php
-      session_start();
+    <?php
+        session_start();
     ?>
       <ul class="nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#forum">Forum</a></li>
-        <li><a class="active" href="#topic">Topic</a></li>
-        <li><a href="#about">About</a></li>
-        <li class="profil"><a href="login.html">Profil</a></li>
+        <li><a href="index.php">Home</a></li>
+        <li><a class="active" href="forum.php">Forum</a></li>
+        <li><a href="about.php">About</a></li>
+        <li class="profil"><a href="login.php">Profil</a></li>
       </ul>
 
       <div class="topicView" id="topicView">

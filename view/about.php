@@ -4,24 +4,25 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="../js/script.js"></script>
+    <script src="../js/scriptTopic.js"></script>
     <link rel="stylesheet" href="../css/style.css">
 
     <title>Forum Triple A</title>
   </head>
 
   <body>
-    <?php
-        session_start();
-    ?>
-      <ul class="nav">
-        <li><a class="active" href="index.php">Home</a></li>
+  <ul class="nav">
+        <li><a class="" href="index.php">Home</a></li>
         <li><a href="forum.php">Forum</a></li>
-        <li><a href="about.php">About</a></li>
+        <li><a class ="active" href="about.php">About</a></li>
         <li class="profil"><a href="login.php">Profil</a></li>
       </ul>
 
-      <h1>Bienvenue sur le site, pour accéder aux différents sujets de discussion, merci de rejoindre le forum.</h1>
+    <?php
+        session_start();
+    ?>
+
+    Site développé par <strong>Asseel Mendjeli-Hussain</strong> et <strong>Adrien GALAN</strong>
 
   </body>
 </html>

@@ -15,13 +15,15 @@
         session_start();
     ?>
       <ul class="nav">
-        <li><a class="active" href="index.php">Home</a></li>
-        <li><a href="forum.php">Forum</a></li>
+        <li><a class="" href="index.php">Home</a></li>
+        <li><a class="active" href="forum.php">Forum</a></li>
         <li><a href="about.php">About</a></li>
         <li class="profil"><a href="login.php">Profil</a></li>
       </ul>
 
-      <h1>Bienvenue sur le site, pour accéder aux différents sujets de discussion, merci de rejoindre le forum.</h1>
+      <div class="topics" id="topics">
+
+      </div>
 
   </body>
 </html>
