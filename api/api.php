@@ -59,5 +59,9 @@ function create(){
         $data = getFromTable("SELECT COUNT(*) FROM user WHERE email=$email AND password=$password");
         return $data;
     }
+    function newTopic($titre,$content,$date,$user){
+        $data = getFromTable("INSERT INTO post (titre, message, date_creation, fk_categorie, fk_user) VALUES ($titre,$content ,$date, 1, $user)");
+        return $data;
+    }
 
 ?>

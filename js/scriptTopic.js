@@ -51,7 +51,6 @@ function topicView(topic) {
 
     content = document.createElement("span");
     content.innerHTML+='<div  id="content" class="content"> '+topic.message+'</div>';
-    content.style.textOverflow ="ellipsis";
     content.style.fontWeight = "normal";
     content.style.fontSize="large";
 
@@ -62,7 +61,7 @@ function comment(comment,part){
     var commentView = document.getElementById("commentView");
     commentView.style.display = "flex";
     commentView.style.flexDirection = "colum";
-    commentView.style.marginLeft = "1em";
+    commentView.style.marginLeft = "1.2em";
     commentView.style.marginRight = "10em";
     commentView.style.padding = "1em";
     commentView.style.backgroundColor = "#a9cad6";
