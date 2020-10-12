@@ -1,5 +1,5 @@
 function getTopicById(id){
-    const f = fetch('http://bean.example.com/IngeWeb/api/index.php?url=topic/'+id);
+    const f = fetch('http://bean.example.com/api/index.php?url=topic/'+id);
     f.then(response => response.json()).then(data => {
         topicView(data[0]);
         });
@@ -7,8 +7,9 @@ function getTopicById(id){
     f.catch(function(data) { 
     });
 }
+
 function getCommentbyTopic(id){
-    const f = fetch('http://bean.example.com/IngeWeb/api/index.php?url=comments/'+id);
+    const f = fetch('http://bean.example.com/api/index.php?url=comments/'+id);
     f.then(response => response.json()).then(data => 
         {
             data.forEach(element => {
@@ -21,8 +22,9 @@ function getCommentbyTopic(id){
     f.catch(function(data) { 
     });
 }
+
 function getUserById(id){
-    const f = fetch('http://bean.example.com/IngeWeb/api/index.php?url=user/'+id);
+    const f = fetch('http://bean.example.com/api/index.php?url=user/'+id);
     f.then(response => response.json()).then(data => {
         console.log(data);
         comment(data[0],1);

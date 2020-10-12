@@ -1,5 +1,5 @@
 function getTopics(){
-    const f = fetch('http://bean.example.com/IngeWeb/api/index.php?url=topics');
+    const f = fetch('http://bean.example.com/api/index.php?url=topics');
     f.then(response => response.json()).then(data => {
         data.forEach(element => {
             topics(element);
@@ -11,7 +11,7 @@ function getTopics(){
 }
 
 function getTopicById(id){
-    const f = fetch('http://bean.example.com/IngeWeb/api/index.php?url=topic/'+id);
+    const f = fetch('http://bean.example.com/api/index.php?url=topic/'+id);
     f.then(response => response.json()).then(data => {
         });
 

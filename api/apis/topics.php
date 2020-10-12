@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-include 'api.php';
+require_once 'api.php';
 $data = getAllTopics();
 $response = $data;
 echo json_encode($response);
