@@ -38,7 +38,7 @@ function topicView(topic) {
 
 
     topicDiv = document.createElement("span");
-    topicDiv.innerHTML+='<div  id="" class="topic"> titre : '+topic.titre+'</div>';
+    topicDiv.innerHTML+='<div  id="" class="topic"> '+topic.titre+'</div>';
     topicDiv.style.margin = "1em";
     topicDiv.style.padding = "1em";
     topicDiv.style.backgroundColor = "#a9cad6";
@@ -48,7 +48,7 @@ function topicView(topic) {
 
 
     content = document.createElement("span");
-    content.innerHTML+='<div  id="content" class="content"> contenu : '+topic.message+'</div>';
+    content.innerHTML+='<div  id="content" class="content"> '+topic.message+'</div>';
     content.style.textOverflow ="ellipsis";
     content.style.fontWeight = "normal";
     content.style.fontSize="large";
@@ -60,15 +60,19 @@ function comment(comment,part){
     var commentView = document.getElementById("commentView");
     commentView.style.display = "flex";
     commentView.style.flexDirection = "colum";
-    commentView.style.flexDirection = "colum";
+    commentView.style.marginLeft = "1em";
+    commentView.style.marginRight = "10em";
+    commentView.style.padding = "1em";
+    commentView.style.backgroundColor = "#a9cad6";
+    commentView.style.boxShadow ="1px 1px 12px #555";
+    commentView.style.fontWeight = "bold";
     commentView.style.backgroundColor = "#f1faee";
-
 
     if(part===1){
 
         commentProfileHead = document.createElement("span");
         commentProfileHead.innerHTML += '<div class="comment"> par '+comment.nickname+'</div>';
-        
+        commentProfileHead.style.justifyContent="flex-end";
         commentView.appendChild(commentProfileHead);
 
     }
@@ -77,8 +81,9 @@ function comment(comment,part){
 
 
         commentHead = document.createElement("span");
-        commentHead.innerHTML+='<div class="comment"> Fait le : '+comment.date_creation+' </div>';
+        commentHead.innerHTML+='<div class="comment"> '+comment.date_creation+' </div>';
         commentHead.style.backgroundColor = "#f1faee";
+        commentHead.style.fontWeight = "normal";
 
 
         commentContent = document.createElement("span");

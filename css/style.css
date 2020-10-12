@@ -100,3 +100,9 @@ div .forums{
   background-color: #1B5385;
   color: white;
 }
+
+/*topic page */
+
+.topicView{
+  background-color: #4CAF50;
+}
