@@ -13,8 +13,8 @@
   <body>
     <?php
         session_start();
-        if(isset($_SESSION['nickname'])){
-          header('Location: ../view/profil.php');
+        if(!isset($_SESSION['nickname'])){
+          header('Location: ../view/login.php');
         }
     ?>
 
@@ -35,28 +35,9 @@
           </a>
         </li>
     </ul>
-    
-    
-    <div id="container">
-        <!-- zone de connexion -->
-        <form action="../controller/verification.php" method="POST">
-            <h1>Connexion</h1>
-            <?php
-              if($_SESSION['error']){
-                print('<div class="error"> Erreur de connexion</div>');
-                $_SESSION['error'] = false;
-              }
-            ?>
-            
-            <label><b>Nom d'utilisateur</b></label>
-            <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
 
-            <label><b>Mot de passe</b></label>
-            <input type="password" placeholder="Entrer le mot de passe" name="password" required>
 
-            <input type="submit" id='submit' value='login' name='login' >
-        </form>
-    </div>
+    
 
     <script>
     </script>
