@@ -45,6 +45,10 @@ function create(){
     function getUserById($id){
         $data = getFromTable("SELECT id , nickname , nom , prenom , email , date_inscription , avatar_url FROM user WHERE id=$id");
         return $data;
+    }
+    function getUserByMail($mail){
+        $data = getFromTable("SELECT nickname FROM user WHERE email=$mail");
+        return $data;
     }  
 
     function getCommentByTopic($topicId){

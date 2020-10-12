@@ -11,7 +11,8 @@ $apis = [
     "topic/(\d+)" => "apis/topic.php",
     "comments/(\d+)" => "apis/comment.php",
     "user/(\d+)" => "apis/user.php",
-    "connect" => "apis/connect.php"
+    "connect" => "apis/connect.php",
+    "mail" => "apis/mail.php"
 ];
 
 
