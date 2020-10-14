@@ -22,8 +22,8 @@ function getTopicById(id){
 
 function topics(topic){
     var topics = document.getElementById("topics");
-    if(topics != null)
-    topics.style.display = "flex"
+    topics.style.display = "flex";
+    topics.style.flexWrap="wrap";
 
     topicDiv = document.createElement("span");
     topicDiv.innerHTML+='<div  id="topic" class="topicMain"> '+topic.titre+'<div  id="content" class="contentMainTopic">'+topic.message+'</div></div>';
@@ -55,6 +55,7 @@ function topicForm(id) {
         var xhttp = new XMLHttpRequest();
         xhttp.open("GET", req, true);
         xhttp.send(null);
+        window.location.reload(true);
     }else{
         console.log("baise tes morts");
     }

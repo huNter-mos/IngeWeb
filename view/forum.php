@@ -35,7 +35,7 @@
       <div class="topics" id="topics">
 
       </div>
-      <button class="open-button" onclick="openForm()">Open Form</button>
+      <button class="open-button" onclick="openForm()">New Topic</button>
 
 <div class="form-popup" id="myForm">
   <div class="form-container">

@@ -109,11 +109,12 @@ div .forums{
     box-shadow: rgb(85, 85, 85) 1px 1px 12px;
     max-width: 15vw;
     min-width: 10vw;
-    max-height: 20vh;
+    max-height: 10vh;
     min-height: 20vh;
     font-weight: bold;
     font-size: large;
     text-align: center;
+    text-overflow: ellipsis;
 }
 
 .topicWrap{
