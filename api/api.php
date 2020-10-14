@@ -13,12 +13,12 @@ function create(){
 
     function connect(){
         $dbh = new PDO('sqlite:triplea.sqlite');
+        $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
         return $dbh;
     }
 
     function sqlDbRequest($req){
         $dbh = connect();
-        $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
         $sql = $req;
         $dbh->beginTransaction();
         try {

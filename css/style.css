@@ -101,10 +101,75 @@ div .forums{
   color: white;
 }
 
-/*topic page */
+.topicMain{
+    margin: 1em;
+    padding: 1em;
+    overflow: hidden;
+    background-color: rgb(169, 202, 214);
+    box-shadow: rgb(85, 85, 85) 1px 1px 12px;
+    max-width: 15vw;
+    min-width: 10vw;
+    max-height: 20vh;
+    min-height: 20vh;
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+}
 
-.topicView{
-  
+.topicWrap{
+  display: flex;
+  flex-direction: row;
+  margin: 1em;
+  padding: 1em;
+  background-color: rgb(169, 202, 214);
+  box-shadow: rgb(85, 85, 85) 1px 1px 12px;
+  width: 95%;
+}
+.topicCreator{
+  padding-right: 1em;
+  border-right: 1px solid gray;
+  text-align: right;
+  min-width: 5em;
+  margin-right: 1em;
+}
+.contentMainTopic{
+  font-weight: normal;
+  font-size: medium;
+}
+.topic{
+
+  font-weight: bold;
+  font-size: larger;
+}
+.topicContent{
+  font-weight: normal;
+  font-size: large;
+}
+/*topic page */
+.commentView , .topicView{
+  display: flex;
+  flex-direction: column;
+}
+.commentStyle{
+  font-weight: normal;
+  margin-left: 1.2em;
+  margin-top: 1em;
+  margin-right: 10em;
+  padding: 1em;
+  box-shadow: rgb(85, 85, 85) 1px 1px 12px;
+  background-color: rgb(241, 250, 238);
+  display: flex;
+  flex-direction: row;
+}
+
+.comment{
+  padding-right: 1em;
+  border-right: 1px solid gray;
+  text-align: right;
+}
+
+.commentContent{
+  padding-left: 1em;
 }
 
 .error{
@@ -116,4 +181,76 @@ div .forums{
 }
 .deconnexion{
   color: red;
+}
+
+/*Css form*/
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 25px;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=textarea] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+.form-container input[type=textarea]{
+  max-width: 14vw;
+  height: 20vh;
+  text-align: start;
+}
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=textarea]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
 }

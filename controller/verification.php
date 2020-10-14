@@ -1,6 +1,5 @@
 <?php
    session_start();
-   require_once "../api/api.php";
 
    if (isset($_POST['login']) && !empty($_POST['username'])
       && !empty($_POST['password'])) {
@@ -12,6 +11,7 @@
          $byMail = file_get_contents("http://bean.example.com/api/index.php?url=mail&email=%22" . $_POST['username'] . "%22");
          $byMail = json_decode($byMail,true);
          $_SESSION['nickname'] = $byMail["nickname"];
+         $_SESSION['id'] = $byMail["id"];
          $_SESSION['nom'] = $byMail['nom'];
          $_SESSION['prenom'] = $byMail['prenom'];
          $_SESSION['email'] = $byMail['email'];

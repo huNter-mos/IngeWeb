@@ -35,6 +35,31 @@
       <div class="topics" id="topics">
 
       </div>
+      <button class="open-button" onclick="openForm()">Open Form</button>
+
+<div class="form-popup" id="myForm">
+  <div class="form-container">
+    <h1>New Topic</h1>
+
+    <label for="title"><b>Title</b></label>
+    <input id="postTitle" type="text" placeholder="Enter Title" name="title" autocomplete="off" required>
+
+    <label for="content"><b>Content</b></label>
+    ​<textarea id="postContent" rows="10" cols="35" style="resize: none;"></textarea>
+
+    <?php
+    if(isset($_SESSION['id'])){
+      $id = $_SESSION['id'];
+    }else{
+      $id = "x";
+    }
+    ?>
+    
+    <button type="submit" onclick="topicForm('<?php echo $id; ?>')" class="btn">Post</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </div>
+</div>
+
 
   </body>
 </html>
