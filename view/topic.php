@@ -38,6 +38,27 @@
       <div class="commentView" id="commentView">
 
       </div>
+      <button class="open-button" onclick="openForm()">New Comment</button>
+
+<div class="form-popup" id="myForm">
+  <div class="form-container">
+    <h1>New Comment</h1>
+
+    <label for="content"><b>Content</b></label>
+    ​<textarea id="NewCommentContent" rows="10" cols="35" style="resize: none;"></textarea>
+
+    <?php
+    if(isset($_SESSION['id'])){
+      $id = $_SESSION['id'];
+    }else{
+      $id = "x";
+    }
+    ?>
+    
+    <button type="submit" onclick="commentForm('<?php echo $id; ?>')" class="btn">Post</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </div>
+</div>
 
   </body>
 </html>

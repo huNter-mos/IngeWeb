@@ -46,18 +46,27 @@ function toDate() {
     return today
 }
 function topicForm(id) {
-    if(id != "x"){
-        var title = document.getElementById("postTitle").value;
-        var content = document.getElementById("postContent").value;
+    var title = document.getElementById("postTitle").value;
+    var content = document.getElementById("postContent").value;
+    var errorPost = 0;
+    title == "" ? errorPost = 1 : errorPost = 0;
+    content == "" ? errorPost = 2 : errorPost = 0;
+    if(id != "x" && errorPost == 0){
+        while (content.indexOf("\n") > -1) content = content.replace("\n","<br>");
         var date = toDate();
         var categorie = 1;
         var req = 'http://bean.example.com/api/index.php?url=newTopic&titre='+title+'&content='+content+'&date='+date+'&categorie='+categorie+'&userId='+id;
+        console.log(req);
         var xhttp = new XMLHttpRequest();
         xhttp.open("GET", req, true);
         xhttp.send(null);
         window.location.reload(true);
     }else{
-        console.log("baise tes morts");
+        if(errorPost == 1 || errorPost == 2){
+            alert("your post is missing content");
+        }else{
+            alert("youneed to create an account");
+        }
     }
 
 }

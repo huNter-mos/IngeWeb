@@ -57,6 +57,48 @@ function comment(comment,user){
         commentView.appendChild(commentHead);
     
 }
+function toDate() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear(); 
+
+    today = yyyy + '-' + mm + '-' + dd;
+    return today
+}
+function commentForm(id) {
+    const urlParams = new URLSearchParams(window.location.search);
+    let topic = urlParams.get('topic');
+    var commentContent = document.getElementById("NewCommentContent").value;
+    console.log(commentContent);
+    var errorComment = 0;
+    commentContent == "" ? errorComment = 1 : errorComment = 0;
+    console.log(errorComment);
+    if(id != "x" && errorComment !=1){
+        while (commentContent.indexOf("\n") > -1) commentContent = commentContent.replace("\n","<br>");
+        var date = toDate();
+        var req = 'http://bean.example.com/api/index.php?url=newComment&message='+commentContent+'&date='+date+'&topicID='+topic+'&userId='+id;
+        console.log(req);
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", req, true);
+        xhttp.send(null);
+        window.location.reload(true);
+    }else{
+        if(errorComment == 1){
+            alert("your post is missing content");
+        }else{
+            alert("youneed to create an account");
+        }
+    }
+
+}
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+}
+  
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+}
 
 
 window.onload=function(){
