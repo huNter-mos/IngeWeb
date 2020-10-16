@@ -85,6 +85,8 @@ function userForm() {
     password == confirm ? errorPost = 0 : errorPost = 5;
 
     if(errorPost == 0){
+        password = hex_md5(password);
+        console.log(password);
         var date = toDate();
         var categorie = 1;
         var req = 'http://bean.example.com/api/index.php?url=newUser&nickname='+nickname+'&nom='+nom+'&prenom='+prenom+'&email='+email+'&password='+password+'&date_inscription='+date;
