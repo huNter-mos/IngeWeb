@@ -48,10 +48,10 @@
               }
             ?>
             
-            <label><b>Nom d'utilisateur</b></label>
+            <label><b>Email</b></label>
             <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
 
-            <label><b>Mot de passe</b></label>
+            <label><b>Password</b></label>
             <input type="password" placeholder="Entrer le mot de passe" name="password" required>
 
             <input type="submit" id='submit' value='login' name='login' >

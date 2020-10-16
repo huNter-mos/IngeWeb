@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
 require_once 'api.php';
-$password = md5($_GET['password']);
+$password = $_GET['password'];
 $data = newUser($_GET['nickname'],$_GET['nom'],$_GET['prenom'],$_GET['email'],$password,$_GET['date_inscription']);
 $response = $data;
 echo json_encode($response);

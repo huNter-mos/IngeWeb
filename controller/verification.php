@@ -3,7 +3,7 @@
 
    if (isset($_POST['login']) && !empty($_POST['username'])
       && !empty($_POST['password'])) {
-         $data = file_get_contents("http://bean.example.com/api/index.php?url=connect&email=%22" . $_POST['username'] . "%22&pwd=%22" . md5($_POST['password']) . "%22");
+         $data = file_get_contents("http://bean.example.com/api/index.php?url=connect&email=%22" . $_POST['username'] . "%22&pwd=%22" . $_POST['password'] . "%22");
          $response = json_decode($data,true);
       if ($response["COUNT(*)"]) {
          $_SESSION['valid'] = true;
