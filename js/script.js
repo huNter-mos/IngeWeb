@@ -65,10 +65,38 @@ function topicForm(id) {
         if(errorPost == 1 || errorPost == 2){
             alert("your post is missing content");
         }else{
-            alert("youneed to create an account");
+            alert("you need to create an account");
         }
     }
+}
+function userForm() {
+    var nickname = document.getElementById("nicknameUser").value;
+    var nom = document.getElementById("nomUser").value;
+    var prenom = document.getElementById("prenomUser").value;
+    var email = document.getElementById("emailUser").value;
+    var password = document.getElementById("passwordUser").value;
+    var confirm = document.getElementById("passwordConfirm").value;
 
+    var errorPost = 0;
+    nickname == "" ? errorPost = 1 : errorPost = 0;
+    nom == "" ? errorPost = 2 : errorPost = 0;
+    prenom == "" ? errorPost = 3 : errorPost = 0;
+    email == "" ? errorPost = 4 : errorPost = 0;
+    password == confirm ? errorPost = 0 : errorPost = 5;
+
+    if(errorPost == 0){
+        var date = toDate();
+        var categorie = 1;
+        var req = 'http://bean.example.com/api/index.php?url=newUser&nickname='+nickname+'&nom='+nom+'&prenom='+prenom+'&email='+email+'&password='+password+'&date_inscription='+date;
+        console.log(req);
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", req, true);
+        xhttp.send(null);
+        window.location.reload(true);
+    }else{
+        alert("your need to fill everything");
+
+    }
 }
 function openForm() {
     document.getElementById("myForm").style.display = "block";

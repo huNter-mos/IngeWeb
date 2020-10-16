@@ -3,7 +3,7 @@
  * Point d'entrée unique de notre application
  * C'est ce script PHP qui décide quel autre script PHP sera appelé en fonction
  */
-
+require_once 'api.php';
 
 // Ici la liste de vos APIs et de leurs scripts associés
 $apis = [
@@ -18,8 +18,8 @@ $apis = [
     "newUser" => "apis/newUser.php"
 ];
 
-
-
+//Pour créer La base de données decomenter le code suivant :
+//create();
 
 /**
  * VOUS NE DEVRIREZ PAS AVOIR À MODIFIER LE CODE PLUS BAS
