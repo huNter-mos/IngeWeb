@@ -19,6 +19,19 @@ function getTopicById(id){
     });
 }
 
+function fastHashParams() {
+    var args = Array.prototype.slice.call(arguments).join('|');
+    var hash = 0;
+    if (args.length == 0) {
+        return hash;
+    }
+    for (var i = 0; i < args.length; i++) {
+        var char = args.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash; // Convert to 32bit integer
+    }
+    return String(hash);
+}
 
 function topics(topic){
     var topics = document.getElementById("topics");
@@ -85,7 +98,7 @@ function userForm() {
     password == confirm ? errorPost = 0 : errorPost = 5;
 
     if(errorPost == 0){
-        password = hex_md5(password);
+        password = fastHashParams(password);
         console.log(password);
         var date = toDate();
         var categorie = 1;
